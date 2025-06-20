@@ -16,9 +16,6 @@ int main()
     while ((tok = lexer.GetToken(file)) != lexer.tok_eof)
     {
         writer.FuncArgs(lexer,tok,file);
-        if (tok == lexer.tok_right_paren) {
-            std::cout << "Right" << "\n";
-        }
         if (tok == lexer.tok_number)
         {
            printf("Number: %f\n", lexer.num_val);

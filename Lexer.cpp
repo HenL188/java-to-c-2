@@ -27,8 +27,26 @@ int Lexer::GetToken(FILE* f) {
             func_type.emplace_back("void");
             return tok_function;
         }
-        if (id_str == "String") {
+        if (id_str == "String" || id_str == "string") {
             return tok_string;
+        }else if (id_str == "int") {
+            return tok_int;
+        }else if (id_str == "float") {
+            return tok_float;
+        }else if (id_str == "char") {
+            return tok_char;
+        } else if (id_str == "bool") {
+            return tok_bool;
+        } else if (id_str == "null") {
+            return tok_null;
+        }else if (id_str == "true") {
+            return tok_true;
+        }
+        else if (id_str == "false") {
+            return tok_false;
+        }
+        else if (id_str == "return") {
+            return tok_return;
         }
         return tok_identifier;
     }

@@ -24,7 +24,14 @@ void Writer::FuncArgs(Lexer &lexer, int& tok, FILE* file) {
                 if (pass == 1) main << lexer.id_str;
                 else main << " " << lexer.id_str;
             } else {
-                if (tok == lexer.tok_string) str = "String";
+                switch (tok) {
+                    case lexer.tok_string: str = "string"; break;
+                    case lexer.tok_int: str = "int"; break;
+                    case lexer.tok_float: str = "float"; break;
+                    case lexer.tok_bool: str = "bool"; break;
+                    case lexer.tok_char: str = "char"; break;
+                    default: break;
+                }
                 if (pass == 1) main << str;
                 else main << " " << tok;
             }
