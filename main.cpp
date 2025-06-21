@@ -13,14 +13,15 @@ int main()
     }
     int tok;
     Writer writer;
-    while ((tok = lexer.GetToken(file)) != lexer.tok_eof)
+    while ((tok = lexer.GetToken(file)) != Lexer::tok_eof)
     {
+        // writer.FuncName(lexer);
         writer.FuncArgs(lexer,tok,file);
-        if (tok == lexer.tok_number)
+        if (tok == Lexer::tok_number)
         {
            printf("Number: %f\n", lexer.num_val);
         }
-        else if (tok == lexer.tok_identifier)
+        else if (tok == Lexer::tok_identifier)
         {
             std::cout << "ID: " << lexer.id_str << std::endl;
         }

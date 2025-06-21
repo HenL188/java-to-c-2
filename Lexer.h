@@ -55,7 +55,7 @@ public:
     int last_char = ' ';
     std::string id_str;
     double num_val;
-    std::vector<std::string> func_name, func_type, func_args;
+    std::vector<std::string> func_name, func_type;
     int GetToken(FILE* f);
 };
 

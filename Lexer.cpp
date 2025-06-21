@@ -23,8 +23,15 @@ int Lexer::GetToken(FILE* f) {
             id_str = last_char;
             while (isalnum(last_char = fgetc(f)))
                 id_str += last_char;
-            func_name.push_back(id_str);
-            func_type.emplace_back("void");
+            std::cout << "last char: " <<last_char << std::endl;
+            if (last_char == '(') {
+                std::cout << "void" << std::endl;
+                func_name.push_back(id_str);
+                func_type.emplace_back("void");
+            }
+           else {
+               return tok_identifier;
+           }
             return tok_function;
         }
         if (id_str == "String" || id_str == "string") {

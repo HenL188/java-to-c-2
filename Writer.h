@@ -6,6 +6,8 @@ class Writer {
 public:
     Writer();
     ~Writer();
+    int x;
+    void FuncName(const Lexer& lexer);
     void FuncArgs(Lexer& lexer, int& tok, FILE* file);
 };
 
