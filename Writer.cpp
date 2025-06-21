@@ -17,7 +17,6 @@ void Writer::FuncName(const Lexer &lexer) {
     if (!lexer.func_name.empty()) {
         if (lexer.func_name[x] == "main") {
             main << "int" << " " << lexer.func_name[x];
-            current_function_name = lexer.func_name[x];
         }
         else main << lexer.func_type[x] << " " << lexer.func_name[x];
         x++;
@@ -28,7 +27,7 @@ void Writer::FuncArgs(Lexer &lexer, int& tok, FILE* file) {
     if (tok == Lexer::tok_left_paren) {
         lexer.id_str.clear();
         main << "(";
-        if (current_function_name == "main") {
+        if (lexer.func_name[x - 1] == "main") {
             main << "int argc, char **argv";
         }else {
             int pass = 1;
