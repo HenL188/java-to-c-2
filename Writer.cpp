@@ -14,9 +14,10 @@ Writer::~Writer() {
 }
 
 void Writer::FuncName(const Lexer &lexer) {
-    if (!lexer.func_name.empty())
-        main << lexer.func_type[x] << lexer.func_name[x];
-    x++;
+    if (!lexer.func_name.empty()) {
+        main << lexer.func_type[x] << " " << lexer.func_name[x];
+        x++;
+    }
 }
 
 

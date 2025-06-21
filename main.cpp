@@ -15,11 +15,12 @@ int main()
     Writer writer;
     while ((tok = lexer.GetToken(file)) != Lexer::tok_eof)
     {
-        // writer.FuncName(lexer);
-        writer.FuncArgs(lexer,tok,file);
+        if (tok == Lexer::tok_function)
+            writer.FuncName(lexer);
+        writer.FuncArgs(lexer, tok, file);
         if (tok == Lexer::tok_number)
         {
-           printf("Number: %f\n", lexer.num_val);
+            printf("Number: %f\n", lexer.num_val);
         }
         else if (tok == Lexer::tok_identifier)
         {
